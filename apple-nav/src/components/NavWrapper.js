@@ -2,6 +2,7 @@ import React from 'react';
 import Data from '../appleNavLinkData';
 import { Route, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import Nav from './Nav';
 
 const StyledNavWrapper = styled.div`
   max-width: 1000px;
@@ -9,6 +10,15 @@ const StyledNavWrapper = styled.div`
   background-color: black;
   color: white;
   
+`;
+
+const StyledNav = styled.div`
+    height: 300px;
+    background-color: gray;
+    color: black;
+    display:flex;
+    justify-content:space-between;
+    
 `;
 
 
@@ -23,28 +33,34 @@ export class NavWrapper extends React.Component {
     }
     render() {
         return (
+           <>
             <StyledNavWrapper>
                 {
-                    <div>
-                         this.state.navs.map(nav => (
-                        <NavLink to={`/${nav.title}`}
-                            activeStyle={{
-                                color: "white"
+                    this.state.navs.map(nav => (
+                        <NavLink 
+                            key = {nav.id}
+                            to={`/${nav.title}`}
+                             activeStyle={{
+                            color: "white"
                             }}>{nav.title}></NavLink>
-
-                        <Route
-                            path={`/${nav.title}`}
-                            render={props => <Nav {...props} nav={nav.sublink} />}
-                        />
-                        ))
-                    </div>
+                     ))
                 }
-
+            
             </StyledNavWrapper>
-
-
-
-
-        )
+            
+            <StyledNav>
+                {
+                    this.state.navs.map(link => (
+                        <Route
+                          key = {link.id}
+                          path = {`/${link.title}`}
+                          render = {props => <Nav {...props} nav = {link.subLink}/>}
+                        />
+                    ))
+                }
+            </StyledNav>
+             
+          </>       
+        );
     }
 }
