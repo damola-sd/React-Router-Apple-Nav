@@ -10,13 +10,16 @@ const StyledNavWrapper = styled.div`
   margin: 0 auto;  
   background-color: black;
   color: white;
+
+  a{
+      margin-left: 20px;
+  }
   
 `;
 
 const StyledNavLink = styled(NavLink)`
-margin-right: 5px;
+margin-right: 10px;
 flex-direction: flex-start;
-padding: 40px;
 text-decoration: none;
 color: white;
 
@@ -26,8 +29,8 @@ const StyledNav = styled.div`
     height: 50px;
     background-color: lightgray;
     color: black;
-    display:flex;
-    justify-content:space-between;
+    display: flex;
+    justify-content: space-between;
     
 `;
 
