@@ -1,27 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// const StyledNav = styled.div`
-//     height: 300px;
-//     background-color: gray;
-//     color: black;
-//     display:flex;
-//     justify-content:space-between;
-    
-// `;
+const StyledImage = styled.img`
+max-height: 50%;
+max-width: 70%;
+`;
+
+const StyledSpan = styled.span`
+font-size: 15px;
+`;
 export default function Nav(props) {
     return (
-        <div>
+        <>
              {
-                this.props.nav.map(link => (
+                props.nav.map(link => (
                     <div
                         key={link.id}>
-                        <img src={link.imageUrl} alt={link.title} />
-                        <span>{link.title}</span>
+                        <StyledImage src={link.imageUrl} alt={link.title} />
+                        <br></br>
+                        <StyledSpan>{link.title}</StyledSpan>
                     </div>
 
                 ))
             }
-        </div>
+        </>
     );
 }
