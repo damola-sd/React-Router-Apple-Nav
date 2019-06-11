@@ -22,6 +22,7 @@ margin-right: 10px;
 flex-direction: flex-start;
 text-decoration: none;
 color: white;
+padding: 30px;
 
 `;
 
